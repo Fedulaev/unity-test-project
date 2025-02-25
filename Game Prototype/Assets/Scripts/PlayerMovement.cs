@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+using System.Collections;
 using UnityEngine;
 [RequireComponent (typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
@@ -20,8 +20,11 @@ public class PlayerMovement : MonoBehaviour
         var VerticalInput = Input.GetAxisRaw("Vertical");
         _rb.linearVelocity = new Vector2(HorizontalInput, VerticalInput).normalized * _speed;
     }
-    public void IncreaseSpeed(int _speedPoint)
+    public IEnumerator IncreaseSpeed(int _speedPoint, int _duration)
     {
+        int startSpeed = _speed;
         _speed += _speedPoint;
+        yield return new WaitForSeconds(_duration);
+        _speed = startSpeed;
     }
 }
