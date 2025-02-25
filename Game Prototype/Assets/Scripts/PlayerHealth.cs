@@ -12,16 +12,16 @@ public class PlayerHealth : MonoBehaviour
     {
         _healthPoints = _maxHealthPoints;
     }
-    public void TakeDamage(int damage)
+    public void TakeDamage(int _damage)
     {
-        _healthPoints -= damage;
+        _healthPoints -= _damage;
         FillHealthBar();
         if(_healthPoints <= 0)
             Die();
     }
-    public void Heal(int healPoint)
+    public void Heal(int _healPoint)
     {
-        _healthPoints += healPoint;
+        _healthPoints += _healPoint;
         if (_healthPoints > _maxHealthPoints)
             _healthPoints = _maxHealthPoints;
         FillHealthBar();

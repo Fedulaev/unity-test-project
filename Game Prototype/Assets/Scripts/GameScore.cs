@@ -9,9 +9,9 @@ public class GameScore : MonoBehaviour
     {
         SetScoreText();
     }
-    public void GetScore(int scorePoint)
+    public void GetScore(int _scorePoint)
     {
-        _score += scorePoint;
+        _score += _scorePoint;
         SetScoreText();
     }
     private void SetScoreText()
