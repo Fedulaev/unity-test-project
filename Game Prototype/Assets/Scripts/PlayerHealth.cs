@@ -19,6 +19,13 @@ public class PlayerHealth : MonoBehaviour
         if(_healthPoints <= 0)
             Die();
     }
+    public void Heal(int healPoint)
+    {
+        _healthPoints += healPoint;
+        if (_healthPoints > _maxHealthPoints)
+            _healthPoints = _maxHealthPoints;
+        FillHealthBar();
+    }
     private void FillHealthBar()
     {
         _healthBar.fillAmount = _healthPoints/100;
