@@ -1,8 +1,9 @@
+using Unity.VisualScripting;
 using UnityEngine;
 [RequireComponent (typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] protected float _speed;
+    [SerializeField] protected int _speed;
     protected Rigidbody2D _rb;
     private void Awake()
     {
@@ -18,5 +19,9 @@ public class PlayerMovement : MonoBehaviour
         var HorizontalInput = Input.GetAxisRaw("Horizontal");
         var VerticalInput = Input.GetAxisRaw("Vertical");
         _rb.linearVelocity = new Vector2(HorizontalInput, VerticalInput).normalized * _speed;
+    }
+    public void IncreaseSpeed(int _speedPoint)
+    {
+        _speed += _speedPoint;
     }
 }
