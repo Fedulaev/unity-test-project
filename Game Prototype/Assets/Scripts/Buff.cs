@@ -4,7 +4,7 @@ using UnityEngine;
 public class Buff : MonoBehaviour
 {
     [SerializeField] private int _refreshDelay;
-    protected GameObject Player;
+    protected GameObject _player;
     protected virtual void TakeEffect() => StartCoroutine(Refresh(_refreshDelay));
     private IEnumerator Refresh(int _delay)
     {
@@ -22,7 +22,7 @@ public class Buff : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Player = collision.gameObject;
+            _player = collision.gameObject;
             TakeEffect();
         }
     }

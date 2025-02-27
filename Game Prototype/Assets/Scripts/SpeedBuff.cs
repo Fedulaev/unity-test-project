@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class SpeedBuff : Buff
 {
-    [SerializeField] private int _speedPoint;
+    [SerializeField] private int _speedBonus;
     [SerializeField] private int _duration;
     protected override void TakeEffect()
     {
-        PlayerMovement playerMovement = Player.GetComponent<PlayerMovement>();
-        StartCoroutine(playerMovement.IncreaseSpeed(_speedPoint, _duration));
+        PlayerMovement playerMovement = _player.GetComponent<PlayerMovement>();
+        StartCoroutine(playerMovement.IncreaseSpeed(_speedBonus, _duration));
     }
 }

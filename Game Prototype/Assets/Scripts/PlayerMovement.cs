@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent (typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] protected int _speed;
+    [SerializeField] protected int _speed = 5;
     protected Rigidbody2D _rb;
     private void Awake()
     {
@@ -20,10 +20,10 @@ public class PlayerMovement : MonoBehaviour
         var VerticalInput = Input.GetAxisRaw("Vertical");
         _rb.linearVelocity = new Vector2(HorizontalInput, VerticalInput).normalized * _speed;
     }
-    public IEnumerator IncreaseSpeed(int _speedPoint, int _duration)
+    public IEnumerator IncreaseSpeed(int _speedBonus, int _duration)
     {
         int startSpeed = _speed;
-        _speed += _speedPoint;
+        _speed += _speedBonus;
         yield return new WaitForSeconds(_duration);
         _speed = startSpeed;
     }

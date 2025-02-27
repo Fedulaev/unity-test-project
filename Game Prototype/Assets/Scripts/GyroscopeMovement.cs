@@ -4,13 +4,13 @@ public class GyroscopeMovement : PlayerMovement
 {
     private void Start()
     {
-        Input.gyro.enabled = true;
+        if(SystemInfo.supportsGyroscope)
+            Input.gyro.enabled = true;
     }
     protected override void Move()
     {
-        float X = Input.gyro.attitude.x;
-        float Y = Input.gyro.attitude.y;
-        print(X + " " + Y);
-        transform.Translate(new Vector3(X, Y) * _speed);
+        float HorizontalInput = Input.gyro.attitude.x;
+        float VerticalInput = Input.gyro.attitude.y;
+        transform.Translate(new Vector3(HorizontalInput, VerticalInput) * _speed);
     }
 }

@@ -1,10 +1,10 @@
 using UnityEngine;
 public class HealBuff : Buff
 {
-    [SerializeField] private int _healPoint;
+    [SerializeField] private int _healAmount;
     protected override void TakeEffect()
     {
-        PlayerHealth playerHealth = Player.GetComponent<PlayerHealth>();
-        playerHealth.Heal(_healPoint);
+        PlayerHealth playerHealth = _player.GetComponent<PlayerHealth>();
+        playerHealth.Heal(_healAmount);
     }
 }
